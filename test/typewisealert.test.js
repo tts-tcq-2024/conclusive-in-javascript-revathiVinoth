@@ -27,15 +27,15 @@ describe('Test -classifyTemperatureBreach alerts', () => {
 });
 
 describe('Test -sendAlerts', () => {
-  it('infers a value based on classification of coolingtype PASSIVE_COOLING and send alerts to controller', () => {
+  it('send alerts to controller with PASSIVE_COOLING', () => {
     alerts.checkAndAlert('TO_CONTROLLER', { 'coolingType': 'PASSIVE_COOLING' }, 34)
     expect(sendToController.calledOnce)
   });
-  it('infers a value based on classification of coolingtype HI_ACTIVE_COOLING and send alerts to email', () => {
+  it('send alerts to email with coolingtype HI_ACTIVE_COOLING', () => {
     alerts.checkAndAlert('TO_EMAIL', [{ 'coolingType': 'HI_ACTIVE_COOLING' }], -1)
     expect(sendToEmail.calledOnce)
   });
-  it('infers a value based on classification of coolingtype MED_ACTIVE_COOLING', () => {
+  it('send alerts to email with cooling type MED_ACTIVE_COOLING', () => {
     alerts.checkAndAlert('TO_EMAIL', [{ 'coolingType': 'MED_ACTIVE_COOLING' }], 41)
     expect(sendToEmail.calledOnce)
   });
