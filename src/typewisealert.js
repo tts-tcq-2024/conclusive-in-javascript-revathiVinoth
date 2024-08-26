@@ -9,18 +9,15 @@ function inferBreach(value, lowerLimit, upperLimit) {
 }
 
 function classifyTemperatureBreach(coolingType, temperatureInC) {
-  let lowerLimit = 0;
-  let upperLimit = 0;
-  if (coolingType == 'PASSIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 35;
-  } else if (coolingType == 'HI_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 45;
-  } else if (coolingType == 'MED_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 40;
-  }
+  console.log("coolingtype", coolingType)
+  const COOLING_RANGE = {
+    "PASSIVE_COOLING": { lower: 0, upper: 35 },
+    "HI_ACTIVE_COOLING": { lower: 0, upper: 45 },
+    "MED_ACTIVE_COOLING": { lower: 0, upper: 40 }
+  };
+  console.log("COOLING RANGE", COOLING_RANGE[coolingType])
+  let lowerLimit = COOLING_RANGE[coolingType].lower;
+  let upperLimit = COOLING_RANGE[coolingType].upper;
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
