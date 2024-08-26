@@ -42,3 +42,6 @@ You have seen a few workflows in this repository. They are quality-gates to prev
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
 **_enter the practice here**
+Implementing code with less code complexity and writing it in modular way as there were situations which needed more code change when an additional feature was requested to added.
+
+I will try to find the same out of the latest feature that i have implemented and refactor it.

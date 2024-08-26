@@ -38,6 +38,5 @@ describe('Test -sendAlerts', () => {
   it('infers a value based on classification of coolingtype MED_ACTIVE_COOLING', () => {
     alerts.checkAndAlert('TO_EMAIL', [{ 'coolingType': 'MED_ACTIVE_COOLING' }], 41)
     expect(sendToEmail.calledOnce)
-    console.log("ERROR")
   });
 });
