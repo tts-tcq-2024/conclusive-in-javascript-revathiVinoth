@@ -1,6 +1,5 @@
 const alerts = require('../src/typewisealert');
 const { expect } = require('chai');
-const { sendToController, sendToEmail } = require('../src/sendAlerts');
 
 describe('Test -Infer alerts', () => {
   it('infers a value lower than the minimum as TOO_LOW', () => {
@@ -29,14 +28,14 @@ describe('Test -classifyTemperatureBreach alerts', () => {
 describe('Test -sendAlerts', () => {
   it('send alerts to controller with PASSIVE_COOLING', () => {
     alerts.checkAndAlert('TO_CONTROLLER', { 'coolingType': 'PASSIVE_COOLING' }, 34)
-    expect(sendToController.calledOnce)
+    expect(alerts.sendToController.calledOnce)
   });
   it('send alerts to email with coolingtype HI_ACTIVE_COOLING', () => {
     alerts.checkAndAlert('TO_EMAIL', [{ 'coolingType': 'HI_ACTIVE_COOLING' }], -1)
-    expect(sendToEmail.calledOnce)
+    expect(alerts.sendToEmail.calledOnce)
   });
   it('send alerts to email with cooling type MED_ACTIVE_COOLING', () => {
     alerts.checkAndAlert('TO_EMAIL', [{ 'coolingType': 'MED_ACTIVE_COOLING' }], 41)
-    expect(sendToEmail.calledOnce)
+    expect(alerts.sendToEmail.calledOnce)
   });
 });
